@@ -51,7 +51,7 @@ namespace LojaVirtual.Controllers
                     ViewData["CONTATO"] = contato;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ViewData["MSG_E"] = "Opps! Aconteceu um erro ao enviar a mensagem!";
             }
