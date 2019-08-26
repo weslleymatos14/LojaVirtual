@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "Contato";
+}
+
+<head>
+    <meta charset="utf-8">
+
+    <title>ASP.NET Core MVC - Loja Virtual</title>
+    <meta name="description" content="Loja Virtual em ASP.NET">
+    <meta name="author" content="Elias Ribeiro">
+    <link rel="stylesheet" href="/resources/lib/bootstrap-4.2.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/lib/caroussel/carousel.css" />
+    <link rel="stylesheet" href="/resources/lib/bootstrap-ecommerce-uikit/css/ui.css" />
+    <link rel="stylesheet" href="/resources/lib/bootstrap-ecommerce-uikit/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+</head>
+
+<main role="main">
+    <br />
+    <br />
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-6">
+                <h4 class="subtitle-doc">
+                    # Outros contatos
+                </h4>
+                <div id="code_desc_simple">
+                    <div class="box">
+                        <dl>
+                            <dt>Devolução/Garantia: </dt>
+                            <dd>devolucao@lojavirtual.com.br</dd>
+                        </dl>
+                        <dl>
+                            <dt>Televendas: </dt>
+                            <dd>(61) 4000-2000</dd>
+                        </dl>
+                        <dl>
+                            <dt>SAC:</dt>
+                            <dd>sac@lojavirtual.com.br</dd>
+                        </dl>
+                    </div> 
+                </div> 
+            </aside>
+            <aside class="col-sm-6">
+
+                <h4 class="subtitle-doc">
+                    # Contato
+                </h4>
+                <div>
+                    <article class="card">
+                        <div class="card-body p-5">
+                            <p class="alert alert-success">Mensagem de sucesso!</p>
+
+                            <form role="form" method="post" action="/Home/ContatoAcao">
+                                <div class="form-group">
+                                    <label for="nome">Nome</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                        </div>
+                                        <input type="text" id ="nome" class="form-control" name="nome" placeholder=""
+                                               required="">
+                                    </div> 
+                                </div> 
+
+                                <div class="form-group">
+                                    <label for="email">E-mail</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-at"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" name="email" id="email" placeholder="">
+                                    </div> 
+                                </div> 
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="texto"><span class="hidden-xs">Texto</span> </label>
+                                            <div class="form-inline">
+                                                <textarea class="form-control" name="texto" id="texto" style="width:100%"></textarea>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <button class="subscribe btn btn-primary btn-block" type="submit"> Enviar </button>
+                            </form>
+                        </div> 
+                    </article> 
+                </div> 
+            </aside>
+        </div>
+    </div>
+</main>
