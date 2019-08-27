@@ -4,12 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using LojaVirtual.DataBase;
 using LojaVirtual.Models;
+using LojaVirtual.Repositories.Interfaces;
 
 namespace LojaVirtual.Repositories
 {
     public class ClienteRepository : IClienteRepository
     {
-        private LojaVirtualContext _banco;
+        private readonly LojaVirtualContext _banco;
 
         public ClienteRepository(LojaVirtualContext banco)
         {

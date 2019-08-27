@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LojaVirtual.Repositories
+namespace LojaVirtual.Repositories.Interfaces
 {
-    interface IClienteRepository
+    public interface IClienteRepository
     {
         Cliente Login(string Email, string Senha);
 
