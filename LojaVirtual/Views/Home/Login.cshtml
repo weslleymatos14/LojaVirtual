@@ -1,6 +1,6 @@
-﻿
+﻿@model Cliente
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Entrar";
 }
 
 <main role="main">
@@ -13,29 +13,24 @@
 
                     <div class="card">
                         <header class="card-header">
-                            <a href="/Home/CadastroCliente" class="float-right btn btn-outline-primary">Cadastrar</a>
+                            <a asp-action="CadastroCliente" asp-controller="Home" class="float-right btn btn-outline-primary">Cadastrar-se</a>
                             <h4 class="card-title mb-4 mt-1">@ViewData["Title"]</h4>
                         </header>
                     </div>
                     <article class="card-body">
-                        <form>
+                        <form method="post">
                             @if (TempData["MSG_S"] != null)
                             {
                                 <p class="alert alert-success">@Html.Raw(TempData["MSG_S"])</p>
                             }
                             <div class="form-group">
                                 <label>Email</label>
-                                <input name="" class="form-control" placeholder="Email" type="email">
+                                <input asp-for="Email" class="form-control" placeholder="Email" type="email">
                             </div>
                             <div class="form-group">
                                 <a class="float-right" href="#">Esqueci a senha</a>
                                 <label>Senha</label>
-                                <input class="form-control" placeholder="******" type="password">
-                            </div>
-                            <div class="form-group">
-                                <div class="checkbox">
-                                    <label> <input type="checkbox"> Salvar senha </label>
-                                </div>
+                                <input asp-for="Senha" class="form-control" placeholder="******" type="password">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-block"> Entrar </button>

@@ -5,8 +5,8 @@ using LojaVirtual.Libraries.Email;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Text;
-using LojaVirtual.DataBase;
 using LojaVirtual.Repositories.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace LojaVirtual.Controllers
 {
@@ -87,9 +87,38 @@ namespace LojaVirtual.Controllers
             return View("Contato");
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login([FromForm]Cliente cliente)
+        {
+            if (cliente.Email == "weslley@gmail.com" && cliente.Senha == "02021999")
+            {
+                HttpContext.Session.Set("ID", new byte[] { 52 });
+                HttpContext.Session.SetString("Email", cliente.Email);
+                HttpContext.Session.SetInt32("Idade", 25);
+
+                return new ContentResult() { Content = "Logado" };
+            }
+            else
+            {
+                return new ContentResult() { Content = "Não logado" };
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Painel()
+        {
+            byte[] UsuarioID; 
+            if (HttpContext.Session.TryGetValue("ID", out UsuarioID))
+            {
+                return new ContentResult() { Content = "Acesso concedido: " + UsuarioID[0] };
+            }
+            return new ContentResult() { Content = "Acesso negado: " + UsuarioID[0] };
         }
 
         [HttpGet]

@@ -33,8 +33,12 @@ namespace LojaVirtual
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddMemoryCache();
+            services.AddSession();
+
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer("Server=.\\SQLEXPRESS;Database=LojaVirtualDb;Integrated Security=True"));
@@ -56,6 +60,7 @@ namespace LojaVirtual
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseSession();
             
             app.UseMvc(routes =>
             {
