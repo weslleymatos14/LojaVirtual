@@ -7,38 +7,43 @@
     <br />
     <br />
     <section class="container">
-        <aside class="col-sm-4">
-            <h3 class="subtitle-doc">
-                # Login form simple
-                <a href="#" data-html="code_login_1" class="showcode">[code]</a>
-            </h3>
+        <aside class="col-sm-4 offset-4">
             <div id="code_login_1">
                 <div class="card">
+
+                    <div class="card">
+                        <header class="card-header">
+                            <a href="/Home/CadastroCliente" class="float-right btn btn-outline-primary">Cadastrar</a>
+                            <h4 class="card-title mb-4 mt-1">@ViewData["Title"]</h4>
+                        </header>
+                    </div>
                     <article class="card-body">
-                        <a href="/Home/CadastroCliente" class="float-right btn btn-outline-primary">Sign up</a>
-                        <h4 class="card-title mb-4 mt-1">Sign in</h4>
                         <form>
+                            @if (TempData["MSG_S"] != null)
+                            {
+                                <p class="alert alert-success">@Html.Raw(TempData["MSG_S"])</p>
+                            }
                             <div class="form-group">
-                                <label>Your email</label>
+                                <label>Email</label>
                                 <input name="" class="form-control" placeholder="Email" type="email">
-                            </div> <!-- form-group// -->
+                            </div>
                             <div class="form-group">
-                                <a class="float-right" href="#">Forgot?</a>
-                                <label>Your password</label>
+                                <a class="float-right" href="#">Esqueci a senha</a>
+                                <label>Senha</label>
                                 <input class="form-control" placeholder="******" type="password">
-                            </div> <!-- form-group// -->
+                            </div>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <label> <input type="checkbox"> Save password </label>
-                                </div> <!-- checkbox .// -->
-                            </div> <!-- form-group// -->
+                                    <label> <input type="checkbox"> Salvar senha </label>
+                                </div>
+                            </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block"> Login </button>
-                            </div> <!-- form-group// -->
+                                <button type="submit" class="btn btn-primary btn-block"> Entrar </button>
+                            </div>
                         </form>
                     </article>
-                </div> <!-- card.// -->
-            </div> <!-- code-wrap.// -->
+                </div> 
+            </div> 
         </aside>
     </section>
 </main>

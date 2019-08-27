@@ -99,6 +99,14 @@ namespace LojaVirtual.Controllers
         [HttpPost]
         public IActionResult CadastroCliente([FromForm]Cliente cliente)
         {
+            if (ModelState.IsValid)
+            {
+                _banco.Clientes.Add(cliente);
+                _banco.SaveChanges();
+
+                TempData["MSG_S"] = "Cadastro realizado com sucesso!";
+                return RedirectToAction(nameof(Login));
+            }
             return View();
         }
 
