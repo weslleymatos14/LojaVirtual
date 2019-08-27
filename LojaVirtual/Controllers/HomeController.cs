@@ -5,15 +5,47 @@ using LojaVirtual.Libraries.Email;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Text;
+using LojaVirtual.DataBase;
 
 namespace LojaVirtual.Controllers
 {
     public class HomeController : Controller
     {
+        private LojaVirtualContext _banco;
 
+        public HomeController(LojaVirtualContext banco)
+        {
+            _banco = banco;
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index([FromForm]NewsLetterEmail newsLetter)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _banco.NewsLetterEmails.Add(newsLetter);
+                    _banco.SaveChanges();
+                    TempData["MSG_S"] = "E-mail cadastrado com sucesso!";
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (Exception)
+            {
+                ViewData["MSG_E"] = "Opps! Aconteceu um erro ao cadastrar o email!";
+                return View();
+            }
         }
 
         public IActionResult Contato()
@@ -21,18 +53,13 @@ namespace LojaVirtual.Controllers
             return View();
         }
 
-        public IActionResult ContatoAcao()
+        public IActionResult ContatoAcao([FromForm]Contato contato)
         {
             try
             {
-                Contato contato = new Contato();
-                contato.Nome = HttpContext.Request.Form["nome"];
-                contato.Email = HttpContext.Request.Form["email"];
-                contato.Texto = HttpContext.Request.Form["texto"];
-
-                var listaMendagens = new List<ValidationResult>();
+                var listaMensagens = new List<ValidationResult>();
                 var contexto = new ValidationContext(contato);
-                bool isValid = Validator.TryValidateObject(contato, contexto, listaMendagens, true);
+                bool isValid = Validator.TryValidateObject(contato, contexto, listaMensagens, true);
 
                 if (isValid)
                 {
@@ -42,7 +69,7 @@ namespace LojaVirtual.Controllers
                 else
                 {
                     StringBuilder sb = new StringBuilder();
-                    foreach(var texto in listaMendagens)
+                    foreach(var texto in listaMensagens)
                     {
                         sb.Append(texto.ErrorMessage + "<br />");
                     }
@@ -63,10 +90,18 @@ namespace LojaVirtual.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult CadastroCliente()
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult CadastroCliente([FromForm]Cliente cliente)
+        {
+            return View();
+        }
+
 
         public IActionResult CarrinhoCompras()
         {
