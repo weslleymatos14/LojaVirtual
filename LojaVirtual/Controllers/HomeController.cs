@@ -101,8 +101,7 @@ namespace LojaVirtual.Controllers
         {
             if (ModelState.IsValid)
             {
-                _banco.Clientes.Add(cliente);
-                _banco.SaveChanges();
+
 
                 TempData["MSG_S"] = "Cadastro realizado com sucesso!";
                 return RedirectToAction(nameof(Login));
