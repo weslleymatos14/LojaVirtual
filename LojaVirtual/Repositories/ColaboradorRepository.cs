@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LojaVirtual.DataBase;
+using LojaVirtual.Data;
 using LojaVirtual.Models;
 
 namespace LojaVirtual.Repositories.Interfaces

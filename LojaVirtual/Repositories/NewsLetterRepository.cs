@@ -1,4 +1,4 @@
-﻿using LojaVirtual.DataBase;
+﻿using LojaVirtual.Data;
 using LojaVirtual.Migrations;
 using LojaVirtual.Models;
 using LojaVirtual.Repositories.Interfaces;
