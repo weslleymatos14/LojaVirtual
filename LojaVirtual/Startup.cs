@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using LojaVirtual.Repositories.Interfaces;
 using LojaVirtual.Repositories;
+using LojaVirtual.Libraries.Session;
 
 namespace LojaVirtual
 {
@@ -33,11 +34,13 @@ namespace LojaVirtual
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddHttpContextAccessor();
             services.AddMemoryCache();
             services.AddSession();
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
+            services.AddScoped<Session>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
