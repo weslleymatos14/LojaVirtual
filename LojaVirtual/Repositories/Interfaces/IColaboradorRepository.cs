@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LojaVirtual.Repositories.Interfaces
 {
-    interface IColaboradorRepository
+    public interface IColaboradorRepository
     {
         Colaborador Login(string email, string senha);
         void Cadastrar(Colaborador colaborador);
