@@ -5,7 +5,7 @@ namespace LojaVirtual.Libraries.Session
 {
     public class Session
     {
-        IHttpContextAccessor _contexto;
+        private readonly IHttpContextAccessor _contexto;
         public Session(IHttpContextAccessor contexto)
         {
             _contexto = contexto;
