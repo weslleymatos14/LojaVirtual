@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using LojaVirtual.Repositories.Interfaces;
 using LojaVirtual.Repositories;
 using LojaVirtual.Libraries.Session;
+using LojaVirtual.Libraries.Login;
 
 namespace LojaVirtual
 {
@@ -41,6 +42,7 @@ namespace LojaVirtual
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
             services.AddScoped<Session>();
+            services.AddScoped<LoginCliente>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

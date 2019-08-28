@@ -1,8 +1,4 @@
 ﻿using LojaVirtual.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace LojaVirtual.Libraries.Login
@@ -24,8 +20,15 @@ namespace LojaVirtual.Libraries.Login
 
         public Cliente GetCliente()
         {
-            string clienteJson = _session.Consultar(Key);
-            return JsonConvert.DeserializeObject<Cliente>(clienteJson);
+            if (_session.Existe(Key))
+            {
+                string clienteJson = _session.Consultar(Key);
+                return JsonConvert.DeserializeObject<Cliente>(clienteJson);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void Logout()

@@ -23,6 +23,10 @@
                             {
                                 <p class="alert alert-success">@Html.Raw(TempData["MSG_S"])</p>
                             }
+                            @if (ViewData["MSG_E"] != null)
+                            {
+                                <p class="alert alert-danger">@Html.Raw(ViewData["MSG_E"])</p>
+                            }
                             <div class="form-group">
                                 <label>Email</label>
                                 <input asp-for="Email" class="form-control" placeholder="Email" type="email">
