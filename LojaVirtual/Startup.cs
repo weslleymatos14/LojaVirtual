@@ -41,6 +41,7 @@ namespace LojaVirtual
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
+            services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
             services.AddScoped<Session>();
             services.AddScoped<LoginCliente>();
 
