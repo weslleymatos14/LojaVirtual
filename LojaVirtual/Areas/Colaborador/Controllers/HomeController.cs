@@ -1,4 +1,5 @@
-﻿using LojaVirtual.Libraries.Login;
+﻿using LojaVirtual.Libraries.Filtro;
+using LojaVirtual.Libraries.Login;
 using LojaVirtual.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,6 +41,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         }
 
         [HttpGet]
+        [ColaboradorAutorizacao]
         public IActionResult Painel()
         {
             return View();
@@ -53,6 +55,13 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         public IActionResult CadastrarNovaSenha()
         {
             return View();
+        }
+
+        [ColaboradorAutorizacao]
+        public IActionResult Logout()
+        {
+            _loginColaborador.Logout();
+            return RedirectToAction(nameof(Login));
         }
     }
 }
