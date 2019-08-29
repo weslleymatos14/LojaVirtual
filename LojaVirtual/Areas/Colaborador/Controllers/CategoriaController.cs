@@ -1,4 +1,5 @@
-﻿using LojaVirtual.Models;
+﻿using LojaVirtual.Libraries.Filtro;
+using LojaVirtual.Models;
 using LojaVirtual.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,7 +10,7 @@ using X.PagedList;
 namespace LojaVirtual.Areas.Colaborador.Controllers
 {
     [Area("Colaborador")]
-    //[ColaboradorAutorizacao]
+    [ColaboradorAutorizacao]
     public class CategoriaController : Controller
     {
         
@@ -83,7 +84,11 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpGet]
         public IActionResult Excluir(int id)
         {
-            return View();
+            _categoriaRepository.Excluir(id);
+
+            TempData["MSG_S"] = "Registro excluído com sucesso";
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
