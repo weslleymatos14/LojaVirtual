@@ -47,12 +47,21 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpGet]
         public IActionResult Atualizar(int id)
         {
-            return View();
+            var colaborador = _colaboradorRepository.ObterColaborador(id);
+            return View(colaborador);
         }
 
         [HttpPost]
         public IActionResult Atualizar([FromForm]Models.Colaborador colaborador, int id)
         {
+            if (ModelState.IsValid)
+            {
+                _colaboradorRepository.Atualizar(colaborador);
+
+                TempData["MSG_S"] = Mensagem.MSG_S002;
+
+                return RedirectToAction(nameof(Index));
+            }
             return View();
         }
 
