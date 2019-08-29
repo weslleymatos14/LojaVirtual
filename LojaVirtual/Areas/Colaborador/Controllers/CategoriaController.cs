@@ -10,7 +10,7 @@ using X.PagedList;
 namespace LojaVirtual.Areas.Colaborador.Controllers
 {
     [Area("Colaborador")]
-    [ColaboradorAutorizacao]
+    //[ColaboradorAutorizacao]
     public class CategoriaController : Controller
     {
         
@@ -40,9 +40,16 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         }
 
         [HttpGet]
-        public IActionResult Atualizar()
+        public IActionResult Atualizar(int id)
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Detalhes(int id)
+        {
+            var categoria = _categoriaRepository.ObterCategoria(id);
+            return View(categoria);
         }
 
         [HttpPost]
