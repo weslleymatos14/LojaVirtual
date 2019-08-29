@@ -10,6 +10,7 @@ namespace LojaVirtual.Models
 {
     public class Categoria
     {
+        [Display(Name = "Código")]
         public int Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E001")]
@@ -22,9 +23,11 @@ namespace LojaVirtual.Models
         [MaxLength(50, ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E003")]
         public string Slug { get; set; }
 
+        [Display(Name = "Categoria Pai")]
         public int? CategoriaPaiId { get; set; }
 
         [ForeignKey("CategoriaPaiId")]
+        [Display(Name = "Categoria Pai")]
         public virtual Categoria CategoriaPai { get; set; }
     }
 }
