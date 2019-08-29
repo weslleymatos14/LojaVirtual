@@ -56,6 +56,7 @@
                         @colaborador.Tipo
                     </td>
                     <td>
+                        <a asp-action="GerarSenha" asp-route-id="@colaborador.Id">Gerar Senha</a> |
                         <a asp-action="Atualizar" asp-route-id="@colaborador.Id">Atualizar</a> |
                         <a asp-action="Detalhes" asp-route-id="@colaborador.Id">Detalhes</a> |
                         <a asp-action="Excluir" asp-route-id="@colaborador.Id" class="excluir">Excluir</a>
