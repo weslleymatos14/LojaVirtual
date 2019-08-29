@@ -15,6 +15,7 @@ using LojaVirtual.Repositories.Interfaces;
 using LojaVirtual.Repositories;
 using LojaVirtual.Libraries.Session;
 using LojaVirtual.Libraries.Login;
+using LojaVirtual.Models;
 
 namespace LojaVirtual
 {
@@ -39,14 +40,16 @@ namespace LojaVirtual
             services.AddMemoryCache();
             services.AddSession();
 
+            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
             services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
-            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+
 
             services.AddScoped<Session>();
             services.AddScoped<LoginCliente>();
             services.AddScoped<LoginColaborador>();
+            services.AddScoped<CategoriaRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

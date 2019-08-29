@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
-
+@{ 
+    ViewData["Title"] = "Painel";
+}
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -7,13 +9,11 @@
 </head>
 <body>
     <div>
-        @RenderBody()
+
     </div>
 </body>
 </html>
 
-
-<!doctype html>
 
 <html lang="pt-br">
 
@@ -22,7 +22,7 @@
 
     <title>@ViewBag.Title</title>
     <meta name="description" content="Loja Virtual em ASP.NET">
-    <meta name="author" content="Elias Ribeiro">
+    <meta name="author" content="Weslley Matos">
     <link rel="stylesheet" href="~/resources/lib/bootstrap-4.2.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <style>
@@ -42,29 +42,30 @@
 </head>
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Loja Virtual</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0 btn btn-dark px-1" asp-action="Painel" asp-controller="Home">Loja Virtual</a>
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" asp-action="Logout">Sair</a>
+                <a class="nav-link btn btn-dark px-2" style="color: white" asp-action="Logout">Sair</a>
             </li>
         </ul>
     </nav>
-
+    <br/>
+    <br/>
     <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" asp-action="Painel">
+                            <a class="nav-link active" asp-action="Painel" asp-controller="Home">
                                 <span data-feather="home"></span>
                                 Painel de controle
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Index" asp-controller="Categoria">
-                                <span data-feather="file"></span>
+                                <span data-feather="file-text"></span>
                                 Categorias
                             </a>
                         </li>
@@ -104,25 +105,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="file-text"></span>
-                                Current month
+                                Mês atual
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="file-text"></span>
-                                Last quarter
+                                Último semestre
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="file-text"></span>
-                                Social engagement
+                                Sociabilidade
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="file-text"></span>
-                                Year-end sale
+                                Vendas de final de ano
                             </a>
                         </li>
                     </ul>
@@ -130,7 +131,7 @@
             </nav>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                
+
                 @RenderBody()
 
             </main>

@@ -10,7 +10,7 @@ namespace LojaVirtual.Models
     {
         public int Id { get; set; }
 
-        public string nome { get; set; }
+        public string Nome { get; set; }
 
         public string Slug { get; set; }
 
