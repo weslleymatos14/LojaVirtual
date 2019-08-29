@@ -1,8 +1,7 @@
-﻿using LojaVirtual.Libraries.Filtro;
-using LojaVirtual.Migrations;
-using LojaVirtual.Models;
+﻿using LojaVirtual.Models;
 using LojaVirtual.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 using X.PagedList;
@@ -30,6 +29,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpGet]
         public IActionResult Cadastrar()
         {
+            ViewBag.Categorias = _categoriaRepository.ObterTodascategorias().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             return View();
         }
 
@@ -44,12 +44,32 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Categorias = _categoriaRepository.ObterTodascategorias().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             return View();
         }
 
         [HttpGet]
         public IActionResult Atualizar(int id)
         {
+            var categoria = _categoriaRepository.ObterCategoria(id);
+            ViewBag.Categorias = _categoriaRepository.ObterTodascategorias().Where(x => x.Id != id).Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
+            return View(categoria);
+        }
+
+        [HttpPost]
+        public IActionResult Atualizar([FromForm]Categoria categoria, int id)
+        {
+            if (ModelState.IsValid)
+            {
+                _categoriaRepository.Atualizar(categoria);
+
+                TempData["MSG_S"] = "Registro atualizado com sucesso";
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            ViewBag.Categorias = _categoriaRepository.ObterTodascategorias().Where(x => x.Id != id).Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             return View();
         }
 
@@ -58,12 +78,6 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         {
             var categoria = _categoriaRepository.ObterCategoria(id);
             return View(categoria);
-        }
-
-        [HttpPost]
-        public IActionResult Atualizar([FromForm]Categoria categoria)
-        {
-            return View();
         }
 
         [HttpGet]

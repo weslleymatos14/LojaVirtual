@@ -1,42 +1,41 @@
 ﻿@model Categoria
 
 @{
-    ViewData["Title"] = "Cadastrar";
+    ViewData["Title"] = "Atualizar";
 }
 
-<h1>Cadastrar</h1>
+<h1>Atualizar</h1>
 
 <h4>Categoria</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Cadastrar" asp-controller="Categoria" method="post">
+        <form asp-action="Atualizar" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Nome" class="control-label">Nome:</label>
+                <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Slug" class="control-label">Slug:</label>
+                <label asp-for="Slug" class="control-label"></label>
                 <input asp-for="Slug" class="form-control" />
                 <span asp-validation-for="Slug" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CategoriaPaiId" class="control-label">Id da categoria pai:</label>
-                <select asp-for="CategoriaPaiId" class="form-control" asp-items="@ViewBag.Categorias">
-                    <option value="">Principal</option>
-                </select>
+                <label asp-for="CategoriaPaiId" class="control-label"></label>
+                <select asp-for="CategoriaPaiId" class="form-control" asp-items="ViewBag.Categorias"></select>
                 <span asp-validation-for="CategoriaPaiId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                <input type="submit" value="Atualizar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index" asp-controller="categoria">Voltar</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
