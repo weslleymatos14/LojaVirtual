@@ -13,14 +13,14 @@ namespace LojaVirtual.Models
         [Display(Name = "Código")]
         public int Id { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E001")]
-        [MinLength(3, ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E002")]
-        [MaxLength(50, ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E003")]
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
+        [MinLength(3, ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E002")]
+        [MaxLength(50, ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E003")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E001")]
-        [MinLength(3, ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E002")]
-        [MaxLength(50, ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E003")]
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
+        [MinLength(3, ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E002")]
+        [MaxLength(50, ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E003")]
         public string Slug { get; set; }
 
         [Display(Name = "Categoria Pai")]

@@ -13,26 +13,28 @@ namespace LojaVirtual.Models
         [Display(Name ="Código")]
         public int Id { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E001")]
-        [MinLength(3, ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E002")]
-        [MaxLength(50, ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E003")]
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
+        [MinLength(3, ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E002")]
+        [MaxLength(50, ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E003")]
         public string Nome { get; set; }
 
         [Display(Name ="E-mail")]
-        [Required(ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E001")]
-        [EmailAddress(ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E004")]
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
+        [EmailAddress(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E004")]
         public string Email { get; set; }
 
         [DataType(DataType.Password)]
-        [Required(ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E001")]
-        [MinLength(6, ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E002")]
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
+        [MinLength(6, ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E002")]
         public string Senha { get; set; }
 
         [NotMapped]
+        [Compare("Senha", ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E005")]
+        [Display(Name ="Confirmar senha")]
         [DataType(DataType.Password)]
         public string ConfirmacaoSenha { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Pt_BR), ErrorMessageResourceName = "MSG_E001")]
+        [Required(ErrorMessageResourceType = typeof(Mensagem), ErrorMessageResourceName = "MSG_E001")]
         public string Tipo { get; set; }
 
     }

@@ -25,18 +25,18 @@
 
 
   <ItemGroup>
-    <Compile Update="Libraries\Lang\Pt-BR.Designer.cs">
+    <Compile Update="Libraries\Lang\Mensagem.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Pt-BR.resx</DependentUpon>
+      <DependentUpon>Mensagem.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
 
   <ItemGroup>
-    <EmbeddedResource Update="Libraries\Lang\Pt-BR.resx">
+    <EmbeddedResource Update="Libraries\Lang\Mensagem.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Pt-BR.Designer.cs</LastGenOutput>
+      <LastGenOutput>Mensagem.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

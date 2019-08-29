@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace LojaVirtual.Repositories.Interfaces
 {
@@ -14,6 +15,6 @@ namespace LojaVirtual.Repositories.Interfaces
         void Excluir(int id);
 
         Colaborador ObterColaborador(int id);
-        IEnumerable<Colaborador> ObterColaboradores();
-    }
+        IPagedList<Colaborador> ObterTodosColaboradores(int? pagina);
+     }
 }

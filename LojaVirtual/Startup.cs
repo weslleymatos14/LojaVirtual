@@ -50,6 +50,7 @@ namespace LojaVirtual
             services.AddScoped<LoginCliente>();
             services.AddScoped<LoginColaborador>();
             services.AddScoped<CategoriaRepository>();
+            services.AddScoped<ColaboradorRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

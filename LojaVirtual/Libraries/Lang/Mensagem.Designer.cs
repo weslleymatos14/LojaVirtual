@@ -22,14 +22,14 @@ namespace LojaVirtual.Libraries.Lang {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Pt_BR {
+    public class Mensagem {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Pt_BR() {
+        internal Mensagem() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace LojaVirtual.Libraries.Lang {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LojaVirtual.Libraries.Lang.Pt-BR", typeof(Pt_BR).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LojaVirtual.Libraries.Lang.Mensagem", typeof(Mensagem).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -93,6 +93,42 @@ namespace LojaVirtual.Libraries.Lang {
         public static string MSG_E004 {
             get {
                 return ResourceManager.GetString("MSG_E004", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to As senhas não conferem..
+        /// </summary>
+        public static string MSG_E005 {
+            get {
+                return ResourceManager.GetString("MSG_E005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registro salvo com sucesso.
+        /// </summary>
+        public static string MSG_S001 {
+            get {
+                return ResourceManager.GetString("MSG_S001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registro atualizado com sucesso.
+        /// </summary>
+        public static string MSG_S002 {
+            get {
+                return ResourceManager.GetString("MSG_S002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registro excluído com sucesso.
+        /// </summary>
+        public static string MSG_S003 {
+            get {
+                return ResourceManager.GetString("MSG_S003", resourceCulture);
             }
         }
     }

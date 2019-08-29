@@ -2,15 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LojaVirtual.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using LojaVirtual.Libraries.Lang;
 
 namespace LojaVirtual.Areas.Colaborador.Controllers
 {
+    [Area("Colaborador")]
     public class ColaboradorController : Controller
     {
-        public IActionResult Index()
+        private readonly ColaboradorRepository _colaboradorRepository;
+
+        public ColaboradorController(ColaboradorRepository colaboradorRepository)
         {
-            return View();
+            _colaboradorRepository= colaboradorRepository;
+        }
+
+        public IActionResult Index(int pagina)
+        {
+            var colaboradores = _colaboradorRepository.ObterTodosColaboradores(pagina);
+            return View(colaboradores);
         }
 
         [HttpGet]
@@ -22,6 +33,14 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpPost]
         public IActionResult Cadastrar([FromForm]Models.Colaborador colaborador)
         {
+            if (ModelState.IsValid)
+            {
+                _colaboradorRepository.Cadastrar(colaborador);
+
+                TempData["MSG_S"] = Mensagem.MSG_S001;
+
+                return RedirectToAction(nameof(Index));
+            }
             return View();
         }
 

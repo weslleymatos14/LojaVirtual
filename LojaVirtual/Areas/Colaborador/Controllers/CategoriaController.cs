@@ -1,4 +1,5 @@
 ﻿using LojaVirtual.Libraries.Filtro;
+using LojaVirtual.Libraries.Lang;
 using LojaVirtual.Models;
 using LojaVirtual.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -41,7 +42,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             {
                 _categoriaRepository.Cadastrar(categoria);
 
-                TempData["MSG_S"] = "Registro salvo com sucesso";
+                TempData["MSG_S"] = Mensagem.MSG_S001;
 
                 return RedirectToAction(nameof(Index));
             }
@@ -65,7 +66,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             {
                 _categoriaRepository.Atualizar(categoria);
 
-                TempData["MSG_S"] = "Registro atualizado com sucesso";
+                TempData["MSG_S"] = Mensagem.MSG_S002;
 
                 return RedirectToAction(nameof(Index));
             }
@@ -86,7 +87,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         {
             _categoriaRepository.Excluir(id);
 
-            TempData["MSG_S"] = "Registro excluído com sucesso";
+            TempData["MSG_S"] = Mensagem.MSG_S003;
 
             return RedirectToAction(nameof(Index));
         }
