@@ -1,29 +1,18 @@
-﻿@model IEnumerable<LojaVirtual.Models.Categoria>
+﻿@model X.PagedList.IPagedList<LojaVirtual.Models.Categoria>
 
 @{
     ViewData["Title"] = "Categorias";
 }
-
+</br>
 <h2>@ViewData["Title"]</h2>
 
 <p>
     <a asp-action="Create">Criar nova categoria</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Slug)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoriaPai)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+
+
+
     <tbody>
         @foreach (var item in Model)
         {
@@ -45,4 +34,7 @@
             </tr>
         }
     </tbody>
+
 </table>
+
+@Html.PagedListPager((IPagedList)Model, pagina => Url.Action("Index", new { pagina }))

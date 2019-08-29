@@ -1,6 +1,5 @@
 ﻿using LojaVirtual.Models;
-using System.Collections.Generic;
-
+using X.PagedList;
 
 namespace LojaVirtual.Repositories.Interfaces
 {
@@ -10,6 +9,6 @@ namespace LojaVirtual.Repositories.Interfaces
         void Atualizar(Categoria categoria);
         void Excluir(int Id);
         Categoria ObterCategoria(int Id);
-        IEnumerable<Categoria> ObterTodasCategorias();
+        IPagedList<Categoria> ObterTodasCategorias(int? pagina);
     }
 }
