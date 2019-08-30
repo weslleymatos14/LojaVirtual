@@ -16,6 +16,9 @@ using LojaVirtual.Repositories;
 using LojaVirtual.Libraries.Session;
 using LojaVirtual.Libraries.Login;
 using LojaVirtual.Models;
+using System.Net.Mail;
+using System.Net;
+using LojaVirtual.Libraries.Email;
 
 namespace LojaVirtual
 {
@@ -36,6 +39,20 @@ namespace LojaVirtual
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddScoped<SmtpClient>(options =>
+            {
+                SmtpClient smtp = new SmtpClient()
+                {
+                    Host = Configuration.GetValue<string>("Email:ServerSMTP"),
+                    Port = Configuration.GetValue<int>("Email:ServerPort"),
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(Configuration.GetValue<string>("Email:Username"), Configuration.GetValue<string>("Email:Password")),
+                    EnableSsl = true
+                };
+
+                return smtp;
+            });
+
             services.AddHttpContextAccessor();
             services.AddMemoryCache();
             services.AddSession();
@@ -44,13 +61,13 @@ namespace LojaVirtual
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
             services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
-
-
+                     
             services.AddScoped<Session>();
             services.AddScoped<LoginCliente>();
             services.AddScoped<LoginColaborador>();
             services.AddScoped<CategoriaRepository>();
             services.AddScoped<ColaboradorRepository>();
+            services.AddScoped<GerenciarEmail>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

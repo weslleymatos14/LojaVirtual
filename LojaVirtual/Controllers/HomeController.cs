@@ -17,12 +17,14 @@ namespace LojaVirtual.Controllers
         private readonly IClienteRepository _repositoryCliente;
         private readonly INewsLetterRepository _repositoryNewsLetter;
         private readonly LoginCliente _loginCliente;
+        private readonly GerenciarEmail _gerenciarEmail;
 
-        public HomeController(IClienteRepository repositoryCliente, INewsLetterRepository repositoryNewsLetter, LoginCliente loginCliente)
+        public HomeController(IClienteRepository repositoryCliente, INewsLetterRepository repositoryNewsLetter, LoginCliente loginCliente, GerenciarEmail gerenciarEmail)
         {
             _repositoryCliente = repositoryCliente;
             _repositoryNewsLetter = repositoryNewsLetter;
             _loginCliente = loginCliente;
+            _gerenciarEmail = gerenciarEmail;
         }
 
         [HttpGet]
@@ -69,7 +71,7 @@ namespace LojaVirtual.Controllers
 
                 if (isValid)
                 {
-                    ContatoEmail.EnviarContatoPorEmail(contato);
+                    _gerenciarEmail.EnviarContatoPorEmail(contato);
                     ViewData["MSG_S"] = "Mensagem de contato enviado com sucesso!";                    
                 }
                 else

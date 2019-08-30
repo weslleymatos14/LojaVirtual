@@ -6,6 +6,7 @@ using LojaVirtual.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using LojaVirtual.Libraries.Lang;
 using LojaVirtual.Libraries.Generator;
+using LojaVirtual.Libraries.Email;
 
 namespace LojaVirtual.Areas.Colaborador.Controllers
 {
@@ -13,10 +14,11 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
     public class ColaboradorController : Controller
     {
         private readonly ColaboradorRepository _colaboradorRepository;
-
-        public ColaboradorController(ColaboradorRepository colaboradorRepository)
+        private readonly GerenciarEmail _gerenciarEmail;
+        public ColaboradorController(ColaboradorRepository colaboradorRepository, GerenciarEmail gerenciarEmail)
         {
             _colaboradorRepository= colaboradorRepository;
+            _gerenciarEmail = gerenciarEmail;
         }
 
         public IActionResult Index(int pagina)
@@ -50,9 +52,11 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         {
             var colaborador = _colaboradorRepository.ObterColaborador(id);
             colaborador.Senha = KeyGenerator.GetUniqueKey(8);
-            _colaboradorRepository.Atualizar(colaborador);
 
-            TempData["MSG_S"] = "Senha gerada com sucesso!";
+            _colaboradorRepository.Atualizar(colaborador);
+            _gerenciarEmail.EnviarSenhaColaborador(colaborador);
+
+            TempData["MSG_S"] = Mensagem.MSG_S004;
             return RedirectToAction(nameof(Index));
         }
 
@@ -69,11 +73,14 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             if (ModelState.IsValid)
             {
                 _colaboradorRepository.Atualizar(colaborador);
-
+                
                 TempData["MSG_S"] = Mensagem.MSG_S002;
 
                 return RedirectToAction(nameof(Index));
             }
+
+            TempData["MSG_E"] = "Caio é gaizão!!!";
+            //TempData["MSG_E"] = "Ops! Aconteceu um erro. Tente novamente mais tarde.";
             return View();
         }
 

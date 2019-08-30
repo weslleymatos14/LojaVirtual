@@ -3,8 +3,13 @@
 @{
     ViewData["Title"] = "Atualizar";
 }
-<hr/>
+<hr />
 <h1>Atualizar</h1>
+
+@if (TempData["MSG_E"] != null)
+{
+    <p class="alert alert-danger">@TempData["MSG_E"]</p>
+}
 
 <h4>Colaborador</h4>
 <hr />
