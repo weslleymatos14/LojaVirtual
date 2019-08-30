@@ -24,7 +24,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
 
         public IActionResult Index(int? pagina, string nome)
         {
-            var  categorias = _categoriaRepository.ObterTodasCategorias(pagina);
+            var categorias = _categoriaRepository.ObterTodasCategorias(pagina);
             return View(categorias);
         }
 

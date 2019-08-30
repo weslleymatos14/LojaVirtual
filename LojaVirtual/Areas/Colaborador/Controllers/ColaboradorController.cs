@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using LojaVirtual.Libraries.Lang;
 using LojaVirtual.Libraries.Generator;
 using LojaVirtual.Libraries.Email;
+using LojaVirtual.Libraries.Filtro;
 
 namespace LojaVirtual.Areas.Colaborador.Controllers
 {
     [Area("Colaborador")]
+    [ColaboradorAutorizacao("Gerente")]
     public class ColaboradorController : Controller
     {
         private readonly ColaboradorRepository _colaboradorRepository;
