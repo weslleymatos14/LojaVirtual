@@ -13,7 +13,7 @@ namespace LojaVirtual.Repositories.Interfaces
         void Cadastrar(Colaborador colaborador);
         void Atualizar(Colaborador colaborador);
         void Excluir(int id);
-
+        void AtualizarSenha(Colaborador colaborador);
         Colaborador ObterColaborador(int id);
         IPagedList<Colaborador> ObterTodosColaboradores(int? pagina);
      }

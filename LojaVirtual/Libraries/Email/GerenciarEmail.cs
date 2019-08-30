@@ -39,11 +39,11 @@ namespace LojaVirtual.Libraries.Email
 
         public void EnviarSenhaColaborador(Colaborador colaborador)
         {
-            string mensagem = $"<h2>Colaborador - Loja Virtual</h2><br />" +
-                            $"Suas informaçoes são:  " +
-                            $"<b>E-mail: </b> {colaborador.Email} <br />" +
-                            $"<b>Nome: </b> {colaborador.Senha} <br />" +
-                            $"<br /> E-mail enviado automaticamente.";
+            string mensagem = $"<h2>Colaborador - Loja Virtual</h2><br/>" +
+                            $"Suas informaçoes são:  <br/>" +
+                            $"<b>E-mail: </b> {colaborador.Email} <br/>" +
+                            $"<b>Senha: </b> {colaborador.Senha} <br/>" +
+                            $"<br/><br/> E-mail enviado automaticamente.";
 
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(_configuration.GetValue<string>("Email:Username"));

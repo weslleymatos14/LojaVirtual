@@ -36,9 +36,12 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpPost]
         public IActionResult Cadastrar([FromForm]Models.Colaborador colaborador)
         {
+            ModelState.Remove("Senha");
             if (ModelState.IsValid)
             {
+                colaborador.Senha = KeyGenerator.GetUniqueKey(8);
                 _colaboradorRepository.Cadastrar(colaborador);
+                _gerenciarEmail.EnviarSenhaColaborador(colaborador);
 
                 TempData["MSG_S"] = Mensagem.MSG_S001;
 
@@ -53,7 +56,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             var colaborador = _colaboradorRepository.ObterColaborador(id);
             colaborador.Senha = KeyGenerator.GetUniqueKey(8);
 
-            _colaboradorRepository.Atualizar(colaborador);
+            _colaboradorRepository.AtualizarSenha(colaborador);
             _gerenciarEmail.EnviarSenhaColaborador(colaborador);
 
             TempData["MSG_S"] = Mensagem.MSG_S004;
@@ -70,6 +73,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpPost]
         public IActionResult Atualizar([FromForm]Models.Colaborador colaborador, int id)
         {
+            ModelState.Remove("Senha");
             if (ModelState.IsValid)
             {
                 _colaboradorRepository.Atualizar(colaborador);
@@ -79,8 +83,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            TempData["MSG_E"] = "Caio é gaizão!!!";
-            //TempData["MSG_E"] = "Ops! Aconteceu um erro. Tente novamente mais tarde.";
+            TempData["MSG_E"] = "Ops! Aconteceu um erro. Tente novamente mais tarde.";
             return View();
         }
 
