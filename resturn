@@ -1,0 +1,155 @@
+[33mcommit 79c648463d705720120494fcfdf96cc6bd4fcb39[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Mon Sep 9 16:09:51 2019 -0300
+
+    Implementação da pesquisa na lista dos clientes
+
+[33mcommit d8038f68fa7a50be1fd59787a47b73b3b1fe7ff2[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Mon Sep 9 15:30:27 2019 -0300
+
+    Pagina index Clientes
+
+[33mcommit b3092e577c3912b502c4ced74c36d1c1e155eb0e[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Mon Sep 9 14:35:37 2019 -0300
+
+    Validação Http Referer
+
+[33mcommit 12d3ba30c02e1c5b1a2b862f8c15f001d41d316d[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Mon Sep 9 11:44:01 2019 -0300
+
+    Validação Anti Token Forgery
+
+[33mcommit 0fc431652191d3a99913363636dc2d7ef650bd6f[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Mon Sep 9 11:13:54 2019 -0300
+
+    Ajuste na index do CategoriaController
+
+[33mcommit 96d56b99e3d02564043eda526f6ea0f7700401a1[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Mon Sep 9 10:33:21 2019 -0300
+
+    Validação de e-mail em cadastro e atualização
+
+[33mcommit 2a56864c92561fd662e3927aeb42fbe6a269a2fa[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Fri Aug 30 16:17:58 2019 -0300
+
+    Correção na autenticação dos colaboradores
+
+[33mcommit 170b52a6c0ad5fd96cdfd595dc93086775a800e8[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Fri Aug 30 15:35:02 2019 -0300
+
+    Modificações no cadastro e atualizar
+
+[33mcommit c5cf8c223e469fd00b238588913c4ff486012e61[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Fri Aug 30 14:45:48 2019 -0300
+
+    Implementação do envio da senha do colaborador por E-mail
+
+[33mcommit f0d9cd23c66152cd43d3381363e2866cb5f1dc29[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 17:56:26 2019 -0300
+
+    Criação da ação gerar senha
+
+[33mcommit 8bbe538c1826fb88c5d90ba225417c5bafb7e4b1[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 17:43:29 2019 -0300
+
+    Implementação do botão excluir colaborador
+
+[33mcommit f531b98d5f5c3898b82e2f6cc6cf653efe011400[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 17:38:43 2019 -0300
+
+    Tela de atualizar colaborador
+
+[33mcommit eca98767e2b7fff5e8f01114976d08ce11fed3c2[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 17:23:20 2019 -0300
+
+    Tela de cadastro de colaboradores criada
+
+[33mcommit 6ad296d3e027524e95fd83db875ceeff66d7cf0c[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 14:11:45 2019 -0300
+
+    Criação controlador colaborador
+
+[33mcommit 572421e31879c5a66406a8bcf0970e4bba9b58f7[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 12:50:23 2019 -0300
+
+    Pequenas correcões nas Views
+
+[33mcommit 067961931d55dbe4a1300cb4ab152b01b8b6d06f[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 12:37:42 2019 -0300
+
+    Implementado botão de excluir e mensagem de confirmação em JS
+
+[33mcommit 9c21be4724a07644fc580000ff9669869ab59918[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 12:10:38 2019 -0300
+
+    Tela atualizar criada
+
+[33mcommit 73fe315891187a02d75f66a3449bb2a7b77f04fd[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 11:46:13 2019 -0300
+
+    Tela de cadastro
+
+[33mcommit 4f73004b50cb91e1eb178e28e25ccdff65561b07[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 11:04:16 2019 -0300
+
+    Implementação View Detalhes
+
+[33mcommit f82c7bd85b588990a6f24a03712cd26865e3daf4[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 10:43:21 2019 -0300
+
+    Implementação de páginas para as categorias
+
+[33mcommit 7c2c51b308ec612b757be58a0e072f986bee5166[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Thu Aug 29 10:03:18 2019 -0300
+
+    Criação da view Index e CategoriaController
+
+[33mcommit 3e5e577eaaa6991b15d243298bc30e8672ae5bf2[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Wed Aug 28 17:26:57 2019 -0300
+
+    Criação do repositorio de categorias
+
+[33mcommit 178f44b6e019b1d470410b328206b675f2f6e9ab[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Wed Aug 28 17:17:57 2019 -0300
+
+    Criação classe Categorias
+
+[33mcommit adbab059599c38492c2e857d3bc6720fcba23b8a[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Wed Aug 28 13:01:05 2019 -0300
+
+    Criação do dashboard
+
+[33mcommit b5e3bc71f3751d1da16ebb24b429064811b56f53[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Wed Aug 28 12:24:57 2019 -0300
+
+    Criação de area colaborador e classe LoginColaborador
+
+[33mcommit 3775355c068d2bd295eef3e4e9a39c3e867b4cc8[m
+Author: weslley matos <weslleymatos.github@gmail.com>
+Date:   Wed Aug 28 12:11:10 2019 -0300
+
+    Criando repositorios Colaboradores
