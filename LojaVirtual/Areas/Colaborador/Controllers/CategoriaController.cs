@@ -22,7 +22,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             _categoriaRepository = categoriaRepository;
         }
 
-        public IActionResult Index(int? pagina, string nome)
+        public IActionResult Index(int? pagina)
         {
             var categorias = _categoriaRepository.ObterTodasCategorias(pagina);
             return View(categorias);

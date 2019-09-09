@@ -16,5 +16,6 @@ namespace LojaVirtual.Repositories.Interfaces
         void AtualizarSenha(Colaborador colaborador);
         Colaborador ObterColaborador(int id);
         IPagedList<Colaborador> ObterTodosColaboradores(int? pagina);
+        List<Colaborador> ObterColaborarPorEmail(string email);
      }
 }
