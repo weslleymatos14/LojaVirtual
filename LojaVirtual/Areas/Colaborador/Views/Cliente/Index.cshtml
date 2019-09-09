@@ -2,9 +2,22 @@
 
 @{
     ViewData["Title"] = "Clientes";
+    var pesquisa = Context.Request.Query["pesquisa"];
 }
 <br />
 <h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <form method="get">
+            <div class="form-group">
+                <input type="text" name="pesquisa" id="pesquisa" value="@pesquisa" class="form-control" placeholder="Pesquisa"/>
+            </div>
+            <input type="submit" value="Pesquisar" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+<br/>    
 
 
 @if (TempData["MSG_S"] != null)
@@ -48,47 +61,47 @@
             <tbody>
                 @foreach (var cliente in Model)
                 {
-                <tr>
-                    <td>
-                        @cliente.Id
-                    </td>
-                    <td>
-                        @cliente.Nome
-                    </td>
-                    <td>
-                        @cliente.Nascimento
-                    </td>
-                    <td>
-                        @cliente.Telefone
-                    </td>
-                    <td>
-                        @cliente.Sexo
-                    </td>
-                    <td>
-                        @cliente.CPF
-                    </td>
-                    <td>
-                        @cliente.Email
-                    </td>
-                    @if (cliente.Situacao == "Ativo")
-                    {
+                    <tr>
                         <td>
-                            <a asp-action="AtivarDesativar" asp-route-id="@cliente.Id">Desativar</a>
+                            @cliente.Id
                         </td>
-                    }
-                    else
-                    {
                         <td>
-                            <a asp-action="AtivarDesativar" asp-route-id="@cliente.Id">Ativar</a>
+                            @cliente.Nome
                         </td>
-                    }
-                </tr>
+                        <td>
+                            @cliente.Nascimento
+                        </td>
+                        <td>
+                            @cliente.Telefone
+                        </td>
+                        <td>
+                            @cliente.Sexo
+                        </td>
+                        <td>
+                            @cliente.CPF
+                        </td>
+                        <td>
+                            @cliente.Email
+                        </td>
+                        @if (cliente.Situacao == "Ativo")
+                        {
+                            <td>
+                                <a asp-action="AtivarDesativar" asp-route-id="@cliente.Id">Desativar</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <a asp-action="AtivarDesativar" asp-route-id="@cliente.Id">Ativar</a>
+                            </td>
+                        }
+                    </tr>
                 }
             </tbody>
 
         </table>
     </div>
-    @Html.PagedListPager((IPagedList)Model, pagina => Url.Action("Index", new { pagina }))
+    @Html.PagedListPager((IPagedList)Model, pagina => Url.Action("Index", new { pagina = pagina, pesquisa = pesquisa }))
 }
 else
 {

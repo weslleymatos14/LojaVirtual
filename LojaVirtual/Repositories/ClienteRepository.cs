@@ -48,11 +48,17 @@ namespace LojaVirtual.Repositories
             return _banco.Clientes.Find(Id);
         }
 
-        public IPagedList<Cliente> ObterTodosClientes(int? pagina)
+        public IPagedList<Cliente> ObterTodosClientes(int? pagina, string pesquisa)
         {
             int numeroPagina = pagina ?? 1;
+            var bancoClientes = _banco.Clientes.AsQueryable();
 
-            return _banco.Clientes.ToPagedList<Cliente>(numeroPagina, _config.GetValue<int>("Registro:RegistroPorPagina"));
+            if (!string.IsNullOrEmpty(pesquisa))
+            {
+                bancoClientes = bancoClientes.Where(x => x.Nome.Contains(pesquisa.Trim()) || x.Email.Contains(pesquisa.Trim()));
+            }
+
+                return bancoClientes.ToPagedList<Cliente>(numeroPagina, _config.GetValue<int>("Registro:RegistroPorPagina"));
         }
     }
 }
