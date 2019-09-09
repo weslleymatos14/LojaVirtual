@@ -67,7 +67,7 @@ namespace LojaVirtual.Repositories.Interfaces
                 numeroPagina = pagina ?? 1;
             else
                 numeroPagina = 1;
-            return _banco.Colaboradores.Where(x => x.Tipo != "G").ToPagedList<Colaborador>(numeroPagina, _config.GetValue<int>("Registro:RegistroPorPagina"));
+            return _banco.Colaboradores.Where(x => x.Tipo != "Gerente").ToPagedList<Colaborador>(numeroPagina, _config.GetValue<int>("Registro:RegistroPorPagina"));
         }
 
         public List<Colaborador> ObterColaborarPorEmail(string email)

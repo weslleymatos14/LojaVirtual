@@ -50,10 +50,10 @@ namespace LojaVirtual.Repositories
         public IPagedList<Categoria> ObterTodasCategorias(int? pagina)
         {
             int numeroPagina = pagina ?? 1;
-            return _banco.Categorias.Include(x => x.CategoriaPai).ToPagedList<Categoria>(numeroPagina, _config.GetValue<int>("RegistroPorPagina"));
+            return _banco.Categorias.Include(x => x.CategoriaPai).ToPagedList<Categoria>(numeroPagina, _config.GetValue<int>("Registro:RegistroPorPagina"));
         }
 
-        public IEnumerable<Categoria> ObterTodascategorias()
+        public IEnumerable<Categoria> ObterTodasCategorias()
         {
             return _banco.Categorias;
         }

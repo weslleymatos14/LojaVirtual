@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject LojaVirtual.Libraries.Login.LoginColaborador colaborador
+<!DOCTYPE html>
 @{ 
     ViewData["Title"] = "Painel do colaborador";
 }
@@ -68,12 +69,17 @@
                                 Clientes
                             </a>
                         </li>
+
+                        @if (colaborador.GetColaborador().Tipo == "Gerente")
+                        {
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Index" asp-controller="Colaborador">
                                 <span data-feather="users"></span>
                                 Colaborador
                             </a>
                         </li>
+                        }
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="file"></span>

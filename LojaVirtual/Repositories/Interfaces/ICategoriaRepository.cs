@@ -11,6 +11,6 @@ namespace LojaVirtual.Repositories.Interfaces
         void Excluir(int Id);
         Categoria ObterCategoria(int Id);
         IPagedList<Categoria> ObterTodasCategorias(int? pagina);
-        IEnumerable<Categoria> ObterTodascategorias();
+        IEnumerable<Categoria> ObterTodasCategorias();
     }
 }

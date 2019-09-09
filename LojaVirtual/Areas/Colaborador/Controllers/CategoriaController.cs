@@ -31,7 +31,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpGet]
         public IActionResult Cadastrar()
         {
-            ViewBag.Categorias = _categoriaRepository.ObterTodascategorias().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
+            ViewBag.Categorias = _categoriaRepository.ObterTodasCategorias().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             return View();
         }
 
@@ -47,7 +47,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewBag.Categorias = _categoriaRepository.ObterTodascategorias().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
+            ViewBag.Categorias = _categoriaRepository.ObterTodasCategorias().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             return View();
         }
 
@@ -55,7 +55,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         public IActionResult Atualizar(int id)
         {
             var categoria = _categoriaRepository.ObterCategoria(id);
-            ViewBag.Categorias = _categoriaRepository.ObterTodascategorias().Where(x => x.Id != id).Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
+            ViewBag.Categorias = _categoriaRepository.ObterTodasCategorias().Where(x => x.Id != id).Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             return View(categoria);
         }
 
@@ -71,7 +71,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewBag.Categorias = _categoriaRepository.ObterTodascategorias().Where(x => x.Id != id).Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
+            ViewBag.Categorias = _categoriaRepository.ObterTodasCategorias().Where(x => x.Id != id).Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
             return View();
         }
 
