@@ -3,16 +3,20 @@ using System.Linq;
 using LojaVirtual.Data;
 using LojaVirtual.Models;
 using LojaVirtual.Repositories.Interfaces;
+using Microsoft.Extensions.Configuration;
+using X.PagedList;
 
 namespace LojaVirtual.Repositories
 {
     public class ClienteRepository : IClienteRepository
     {
+        private readonly IConfiguration _config;
         private readonly LojaVirtualContext _banco;
 
-        public ClienteRepository(LojaVirtualContext banco)
+        public ClienteRepository(LojaVirtualContext banco, IConfiguration config)
         {
             _banco = banco;
+            _config = config;
         }
 
         public void Atualizar(Cliente cliente)
@@ -44,9 +48,11 @@ namespace LojaVirtual.Repositories
             return _banco.Clientes.Find(Id);
         }
 
-        public List<Cliente> ObterTodosClientes()
+        public IPagedList<Cliente> ObterTodosClientes(int? pagina)
         {
-            return _banco.Clientes.ToList();
+            int numeroPagina = pagina ?? 1;
+
+            return _banco.Clientes.ToPagedList<Cliente>(numeroPagina, _config.GetValue<int>("Registro:RegistroPorPagina"));
         }
     }
 }

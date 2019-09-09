@@ -1,0 +1,37 @@
+[33mb3092e5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m Validação Http Referer
+[33m12d3ba3[m Validação Anti Token Forgery
+[33m0fc4316[m Ajuste na index do CategoriaController
+[33m96d56b9[m Validação de e-mail em cadastro e atualização
+[33m2a56864[m Correção na autenticação dos colaboradores
+[33m170b52a[m Modificações no cadastro e atualizar
+[33mc5cf8c2[m Implementação do envio da senha do colaborador por E-mail
+[33mf0d9cd2[m Criação da ação gerar senha
+[33m8bbe538[m Implementação do botão excluir colaborador
+[33mf531b98[m Tela de atualizar colaborador
+[33meca9876[m Tela de cadastro de colaboradores criada
+[33m6ad296d[m Criação controlador colaborador
+[33m572421e[m Pequenas correcões nas Views
+[33m0679619[m Implementado botão de excluir e mensagem de confirmação em JS
+[33m9c21be4[m Tela atualizar criada
+[33m73fe315[m Tela de cadastro
+[33m4f73004[m Implementação View Detalhes
+[33mf82c7bd[m Implementação de páginas para as categorias
+[33m7c2c51b[m Criação da view Index e CategoriaController
+[33m3e5e577[m Criação do repositorio de categorias
+[33m178f44b[m Criação classe Categorias
+[33madbab05[m Criação do dashboard
+[33mb5e3bc7[m Criação de area colaborador e classe LoginColaborador
+[33m3775355[m Criando repositorios Colaboradores
+[33m111cb2f[m Teste das sessões
+[33m60f1ef8[m Criação classe LoginCliente
+[33m4e1109e[m Criação da classe Session
+[33mefa396b[m Inicio da configuração de sessões
+[33m805e829[m Criação do repositorio NewsLetter
+[33mac6273f[m Criação dos repositorios
+[33me80b30b[m Tela de cadastro
+[33m14bae09[m Validações com Http.helper
+[33mad1e0aa[m Conexão com o banco de dados
+[33m39cc7c8[m Validação da entrada de dados na aba Contato
+[33m816bd26[m Views necessárias criadas
+[33mcd6263b[m Criado controlador,modelo e view Produto
+[33m8557c2f[m Criação do projeto
