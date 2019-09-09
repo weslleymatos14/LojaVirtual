@@ -1,4 +1,5 @@
-﻿using LojaVirtual.Libraries.Filtro;
+﻿using LojaVirtual.Libraries.Filter;
+using LojaVirtual.Libraries.Filtro;
 using LojaVirtual.Libraries.Lang;
 using LojaVirtual.Models;
 using LojaVirtual.Repositories;
@@ -83,6 +84,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         }
 
         [HttpGet]
+        [ValidateHttpReferer]
         public IActionResult Excluir(int id)
         {
             _categoriaRepository.Excluir(id);

@@ -8,6 +8,7 @@ using LojaVirtual.Libraries.Lang;
 using LojaVirtual.Libraries.Generator;
 using LojaVirtual.Libraries.Email;
 using LojaVirtual.Libraries.Filtro;
+using LojaVirtual.Libraries.Filter;
 
 namespace LojaVirtual.Areas.Colaborador.Controllers
 {
@@ -53,6 +54,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         }
 
         [HttpGet]
+        [ValidateHttpReferer]
         public IActionResult GerarSenha(int id)
         {
             var colaborador = _colaboradorRepository.ObterColaborador(id);
@@ -90,6 +92,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         }
 
         [HttpGet]
+        [ValidateHttpReferer]
         public IActionResult Excluir(int id)
         {
             _colaboradorRepository.Excluir(id);
