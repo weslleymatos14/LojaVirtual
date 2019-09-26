@@ -20,6 +20,7 @@ using System.Net.Mail;
 using System.Net;
 using LojaVirtual.Libraries.Email;
 using LojaVirtual.Libraries.Middleware;
+using Microsoft.AspNetCore.Routing;
 
 namespace LojaVirtual
 {
@@ -62,7 +63,9 @@ namespace LojaVirtual
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
             services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
-                     
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IImagemRepository, ImagemRepository>();
+
             services.AddScoped<Session>();
             services.AddScoped<LoginCliente>();
             services.AddScoped<LoginColaborador>();
