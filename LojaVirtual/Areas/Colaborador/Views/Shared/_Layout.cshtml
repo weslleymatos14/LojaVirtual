@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="~/resources/lib/bootstrap-4.2.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="~/resources/lib/pagedList/StyleSheet.css" type="text/css" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" type="text/css" />
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -58,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" asp-action="Index" asp-controller="Produto">
                                 <span data-feather="shopping-cart"></span>
                                 Produtos
                             </a>
@@ -70,7 +71,7 @@
                             </a>
                         </li>
 
-                        @if (colaborador.GetColaborador().Tipo == "Gerente")
+                        @if (colaborador.GetColaborador() != null && colaborador.GetColaborador().Tipo == "Gerente")
                         {
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Index" asp-controller="Colaborador">

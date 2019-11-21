@@ -8,7 +8,7 @@
 <h2>@ViewData["Title"]</h2>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <form method="get">
             <div class="form-group">
                 <input type="text" name="pesquisa" id="pesquisa" value="@pesquisa" class="form-control" placeholder="Pesquisar" />
@@ -19,6 +19,9 @@
 </div>
 <br />
 
+<p>
+    <a asp-action="Cadastrar" asp-controller="Produto">Cadastrar novo produto</a>
+</p>
 
 @if (TempData["MSG_S"] != null)
 {
@@ -36,9 +39,6 @@
                     </td>
                     <td>
                         <label asp-for="@Model.First().Nome" class="control-label"></label>
-                    </td>
-                    <td>
-                        <label asp-for="@Model.First().Categoria" class="control-label"></label>
                     </td>
                     <td>
                         <label asp-for="@Model.First().CategoriaId" class="control-label"></label>
@@ -61,9 +61,6 @@
                         </td>
                         <td>
                             @produto.Nome
-                        </td>
-                        <td>
-                            @produto.Categoria
                         </td>
                         <td>
                             @produto.CategoriaId
