@@ -42,9 +42,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             if (ModelState.IsValid)
             {
                 _categoriaRepository.Cadastrar(categoria);
-
                 TempData["MSG_S"] = Mensagem.MSG_S001;
-
                 return RedirectToAction(nameof(Index));
             }
 
