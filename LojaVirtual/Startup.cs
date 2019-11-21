@@ -35,11 +35,12 @@ namespace LojaVirtual
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<CookiePolicyOptions>(options =>
+           /* Desabilitei pois não está funcionando
+            * services.Configure<CookiePolicyOptions>(options =>
             {
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+            });*/
 
             services.AddScoped<SmtpClient>(options =>
             {
@@ -75,7 +76,7 @@ namespace LojaVirtual
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer("Server=.\\SQLEXPRESS;Database=LojaVirtualDb;Integrated Security=True"));
+            services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer("Data Source=DESKTOP-E8D5SE9\\AMENTERPRISE11;Initial Catalog=LojaVirtualDB;Integrated Security=True"));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
