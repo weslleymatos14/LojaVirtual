@@ -12,7 +12,7 @@ namespace LojaVirtual.Libraries.Arquivo
         public static string CadastrarImagemProduto(IFormFile file)
         {
             var NomeArquivo = Path.GetFileName(file.FileName);
-            var Caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwrot/uploads/temp", NomeArquivo);
+            var Caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads/temp", NomeArquivo);
 
             using(var stream = new FileStream(Caminho, FileMode.Create))
             {
@@ -24,7 +24,7 @@ namespace LojaVirtual.Libraries.Arquivo
 
         public static bool ExcluirImagemProduto(string caminho)
         {
-            var Caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwrot", caminho.TrimStart('/'));
+            var Caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", caminho.TrimStart('/'));
             if (File.Exists(Caminho))
             {
                 File.Delete(Caminho);

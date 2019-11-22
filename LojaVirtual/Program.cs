@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace LojaVirtual
@@ -8,6 +7,7 @@ namespace LojaVirtual
     {
         public static void Main(string[] args)
         {
+            CurrentDirectoryHelpers.SetCurrentDirectory();
             CreateWebHostBuilder(args).Build().Run();
         }
 
