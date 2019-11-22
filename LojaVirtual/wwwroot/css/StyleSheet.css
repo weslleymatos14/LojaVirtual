@@ -5,9 +5,18 @@
     color: red;
     display: block;
 }
-.Imagens .btn-imagem-excluir{
+
+.Imagens .col-md-2 {
+    margin-bottom: 20px;
+}
+
+.Imagens .btn-imagem-excluir {
     width: 100%;
     margin-bottom: 20px;
+}
+
+.Imagens .btn-ocultar {
+    display: none;
 }
 
 .Imagens div{
@@ -18,10 +27,14 @@
     width: 100%;
 }
 
-.input-file{
+.Imagens .input-file {
     display: none;
 }
 
-.img-upload{
+.Imagens .img-upload {
     cursor: pointer;
+}
+
+.Imagens input[name = Imagem] {
+    display: none;
 }
