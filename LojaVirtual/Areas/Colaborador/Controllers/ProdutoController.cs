@@ -72,16 +72,29 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         [HttpPost]
         public IActionResult Atualizar(Produto produto, int id)
         {
-            //Verifica se o modelo do formulário é compativel com os campos do banco
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
+                //Cadastra produto no banco
                 _produtoRepository.Atualizar(produto);
+
+                //Pega campo com o caminho da Imagem
+                List<Imagem> ListaImagensDef = GerenciadorArquivo.MoverImagemProduto(new List<string>(Request.Form["Imagem"]), produto.Id);
+
+                //Deleta as imagens no banco
+                _imagemRepository.ExcluirImagensDoProduto(produto.Id);
+
+                //Insere as imagens no banco
+                _imagemRepository.CadastrarImagens(ListaImagensDef, produto.Id);
+
                 TempData["MSG_S"] = Mensagem.MSG_S001;
                 return RedirectToAction(nameof(Index));
             }
-
-            ViewBag.Categorias = _categoriaRepository.ObterTodasCategorias().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
-            return View(produto);
+            else
+            {
+                produto.Imagens = new List<string>(Request.Form["Imagem"]).Where(x => x.Trim().Length > 0).Select(x => new Imagem() { Caminho = x }).ToList();
+                ViewBag.Categorias = _categoriaRepository.ObterTodasCategorias().Select(a => new SelectListItem(a.Nome, a.Id.ToString()));
+                return View(produto);
+            }          
         }
     }
 }
