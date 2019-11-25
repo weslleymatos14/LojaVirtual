@@ -74,7 +74,7 @@ namespace LojaVirtual
             services.AddScoped<ColaboradorRepository>();
             services.AddScoped<GerenciarEmail>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options => options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo deve ser preenchido!")).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer("Server=localhost;Database=LojaVirtualDB;Integrated Security=True"));
         }
