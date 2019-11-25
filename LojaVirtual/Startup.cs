@@ -76,7 +76,7 @@ namespace LojaVirtual
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer("Server=DESKTOP-E8D5SE9\\AMENTERPRISE11;Database=LojaVirtualDB;Integrated Security=True"));
+            services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer("Server=localhost;Database=LojaVirtualDB;Integrated Security=True"));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

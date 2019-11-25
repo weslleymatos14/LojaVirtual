@@ -14,7 +14,7 @@
 
 function AjaxUploadImagensProdutos() {
     $(".img-upload").click(function (){
-        $(this).parent().find(".input-file").click();
+        $(this).parent().parent().find(".input-file").click();
     });
 
     
@@ -49,6 +49,10 @@ function AjaxUploadImagensProdutos() {
         var Imagem = $(this).parent().find(".img-upload");
         var BtnExcluir = $(this).parent().find(".btn-imagem-excluir");
 
+        //Mostra imagem de loading
+        Imagem.attr("src", "/img/Loading.gif");
+        Imagem.addClass("thumb");
+
         //Requisição Ajax enviando formulário
         $.ajax({
             type: "POST",
@@ -57,11 +61,14 @@ function AjaxUploadImagensProdutos() {
             contentType: false,
             processData: false,
             error: function () {
+                Imagem.removeClass("thumb");
+                Imagem.attr("src", "/img/imagem-padrao.png");
                 alert("Erro no envio do arquivo!");
             },
             success: function (data) {
                 var Caminho = data.caminho;
                 Imagem.attr("src", Caminho);
+                Imagem.removeClass("thumb");
                 CampoHidden.val(Caminho);
                 BtnExcluir.removeClass("btn-ocultar");
             },

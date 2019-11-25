@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-12">
-        <form asp-action="Cadastrar" asp-controller="Produto" method="post">
+        <form asp-action="Atualizar" asp-controller="Produto" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="row">
@@ -89,6 +89,8 @@
                     <span asp-validation-for="Comprimento" class="text-danger"></span>
                 </div>
             </div>
+
+            <h4>Adicionar Imagens</h4>
             <hr />
             @{
                 List<Imagem> Imagens = new List<Imagem>();
@@ -104,7 +106,9 @@
                     {
                         <div class="col-md-2">
                             <input type="file" class="input-file" />
-                            <img src="@Imagens.ElementAtOrDefault(i).Caminho" class="img-thumbnail img-upload" />
+                            <div class="container-img-thumbnail">
+                                <span class="helper"></span><img src="@Imagens.ElementAtOrDefault(i).Caminho" class="img-thumbnail img-upload" />
+                            </div>
                             <div class="btn btn-danger btn-imagem-excluir">X</div>
                             <input type="text" name="Imagem" value="@Imagens.ElementAtOrDefault(i).Caminho" />
                         </div>
@@ -113,10 +117,12 @@
                     {
                         <div class="col-md-2">
                             <input type="file" class="input-file" />
-                            <img src="~/img/imagem-padrao.png" class="img-thumbnail img-upload" />
+                            <div class="container-img-thumbnail">
+                                <span class="helper"></span><img src="~/img/imagem-padrao.png" class="img-thumbnail img-upload" />
+                            </div>
                             <div class="btn btn-danger btn-imagem-excluir btn-ocultar">X</div>
-                            <input type="text" name="Imagem" />
                         </div>
+                        <input type="text" name="Imagem" />
                     }
                 }
                 <div class="form-group">
