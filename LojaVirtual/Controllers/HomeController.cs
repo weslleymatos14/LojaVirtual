@@ -146,5 +146,9 @@ namespace LojaVirtual.Controllers
             return View();
         }
 
+        public IActionResult Categoria()
+        {
+            return View();
+        }
     }
 }
