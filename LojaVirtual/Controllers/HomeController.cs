@@ -31,14 +31,14 @@ namespace LojaVirtual.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(int? pagina, string pesquisa)
+        public IActionResult Index(int? pagina, string pesquisa, string ordenacao)
         {
-            var viewModel = new IndexViewModel() { lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa) };
+            var viewModel = new IndexViewModel() { lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa, ordenacao) };
             return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult Index([FromForm]NewsLetterEmail newsLetter, int? pagina, string pesquisa)
+        public IActionResult Index([FromForm]NewsLetterEmail newsLetter, int? pagina, string pesquisa, string ordenacao)
         {
             try
             {
@@ -51,14 +51,14 @@ namespace LojaVirtual.Controllers
                 else
                 {
                     ViewData["MSG_E"] = "Opps! Aconteceu um erro ao cadastrar o email!";
-                    var viewModel = new IndexViewModel() { lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa) };
+                    var viewModel = new IndexViewModel() { lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa, ordenacao) };
                     return View(viewModel);
                 }
             }
             catch (Exception)
             {
                 ViewData["MSG_E"] = "Opps! Aconteceu um erro ao cadastrar o email!";
-                var viewModel = new IndexViewModel() { lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa) };
+                var viewModel = new IndexViewModel() { lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa, ordenacao) };
                 return View(viewModel);
             }
         }

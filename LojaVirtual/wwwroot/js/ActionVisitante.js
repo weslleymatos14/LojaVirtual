@@ -1,6 +1,17 @@
 ﻿$(document).ready(function () {
     MudarOrdenacao();
+    MoverScrollOrdenacao();
 });
+
+function MoverScrollOrdenacao() {
+    if (window.location.hash.length > 0) {
+        var Hash = window.location.hash;
+
+        if (Hash == "#posicao-produto") {
+            window.scrollBy(0, 480);
+        }
+    }
+}
 
 function MudarOrdenacao() {
     $("#ordenacao").change(function () {
@@ -23,10 +34,10 @@ function MudarOrdenacao() {
         }
 
         //Pega url da pagina atual
-        var URL = window.location.protocol + "//" + window.location.host  + window.location.pathname;
+        var URL = window.location.protocol + "//" + window.location.host + window.location.pathname;
 
         //Monta a url para ordenar
-        var URLComParametros = URL + "?pagina=" + Pagina + "&pesquisa=" + Pesquisa + "&ordenacao=" + Ordenacao + "#ordenacao"; 
+        var URLComParametros = URL + "?pagina=" + Pagina + "&pesquisa=" + Pesquisa + "&ordenacao=" + Ordenacao + "#posicao-produto";
 
         //Redireciona para a URL criada
         window.location.href = URLComParametros;
