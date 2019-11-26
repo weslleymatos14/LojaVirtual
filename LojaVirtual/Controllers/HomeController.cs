@@ -9,6 +9,7 @@ using LojaVirtual.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using LojaVirtual.Libraries.Login;
 using LojaVirtual.Libraries.Filtro;
+using LojaVirtual.Models.ViewModels;
 
 namespace LojaVirtual.Controllers
 {
@@ -18,9 +19,11 @@ namespace LojaVirtual.Controllers
         private readonly INewsLetterRepository _repositoryNewsLetter;
         private readonly LoginCliente _loginCliente;
         private readonly GerenciarEmail _gerenciarEmail;
+        private readonly IProdutoRepository _produtoRepository;
 
-        public HomeController(IClienteRepository repositoryCliente, INewsLetterRepository repositoryNewsLetter, LoginCliente loginCliente, GerenciarEmail gerenciarEmail)
+        public HomeController(IProdutoRepository produtoRepository, IClienteRepository repositoryCliente, INewsLetterRepository repositoryNewsLetter, LoginCliente loginCliente, GerenciarEmail gerenciarEmail)
         {
+            _produtoRepository = produtoRepository;
             _repositoryCliente = repositoryCliente;
             _repositoryNewsLetter = repositoryNewsLetter;
             _loginCliente = loginCliente;
@@ -28,13 +31,14 @@ namespace LojaVirtual.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(int? pagina, string pesquisa)
         {
-            return View();
+            var viewModel = new IndexViewModel() { lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa) };
+            return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult Index([FromForm]NewsLetterEmail newsLetter)
+        public IActionResult Index([FromForm]NewsLetterEmail newsLetter, int? pagina, string pesquisa)
         {
             try
             {
@@ -46,13 +50,16 @@ namespace LojaVirtual.Controllers
                 }
                 else
                 {
-                    return View();
+                    ViewData["MSG_E"] = "Opps! Aconteceu um erro ao cadastrar o email!";
+                    var viewModel = new IndexViewModel() { lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa) };
+                    return View(viewModel);
                 }
             }
             catch (Exception)
             {
                 ViewData["MSG_E"] = "Opps! Aconteceu um erro ao cadastrar o email!";
-                return View();
+                var viewModel = new IndexViewModel() { lista = _produtoRepository.ObterTodosProdutos(pagina, pesquisa) };
+                return View(viewModel);
             }
         }
 
